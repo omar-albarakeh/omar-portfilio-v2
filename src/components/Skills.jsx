@@ -62,11 +62,6 @@ const Skills = () => {
           </Carousel>
         </motion.div>
       </div>
-      <img
-        className="background-image"
-        src="/images/color-sharp.png"
-        alt="Background Graphic"
-      />
     </section>
   );
 };
