@@ -144,7 +144,7 @@ nav.navbar a.navbar-brand {
 }
 
 .social-icon a img {
-  width: 40%;
+  width: 60%;
   z-index: 1;
   transition: 0.3s ease-in-out;
 }
@@ -241,7 +241,7 @@ nav.navbar a.navbar-brand {
 }
 
 .navbar .dropdown-menu {
-  background-color: #1e1e1e;
+  background-color: #130e0e;
   border: none;
   border-radius: 8px;
   padding: 10px 0;
@@ -270,4 +270,24 @@ nav.navbar a.navbar-brand {
 .logo {
   border-radius: 50px;
   margin-left: 30px;
+}
+.navbar .dropdown-toggle {
+  color: #fff !important;
+  font-weight: 400;
+  letter-spacing: 0.8px;
+  padding: 0 20px !important;
+  font-size: 18px;
+  opacity: 0.75;
+  transition: 0.3s ease-in-out;
+  background: transparent !important;
+  border: none !important; 
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+.navbar .dropdown-toggle:hover,
+.navbar .dropdown-toggle.show {
+  opacity: 1;
+  color: #fff !important;
 }
