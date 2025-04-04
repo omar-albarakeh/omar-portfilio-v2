@@ -13,23 +13,32 @@ function MyNavbar() {
   return (
     <Navbar bg="light" expand="lg">
       <Container fluid>
-        <Navbar.Brand href="#">Navbar</Navbar.Brand>
+        <img
+          src="/images/logo.png"
+          alt="logo"
+          width="40"
+          height="40"
+          className="logo"
+        />
+
         <Navbar.Toggle aria-controls="navbarSupportedContent" />
+
         <Navbar.Collapse id="navbarSupportedContent">
           <Nav className="me-auto mb-2 mb-lg-0">
             <Nav.Link href="#" className="active">
               Home
             </Nav.Link>
-            <Nav.Link href="#">Link</Nav.Link>
+
+            <Nav.Link href="#">Skills</Nav.Link>
+            <Nav.Link href="#">Projects</Nav.Link>
+
             <NavDropdown title="Dropdown" id="basic-nav-dropdown">
-              <NavDropdown.Item href="#">Action</NavDropdown.Item>
-              <NavDropdown.Item href="#">Another action</NavDropdown.Item>
+              <NavDropdown.Item href="#">Home</NavDropdown.Item>
+              <NavDropdown.Item href="#">Skills</NavDropdown.Item>
               <NavDropdown.Divider />
-              <NavDropdown.Item href="#">Something else here</NavDropdown.Item>
+              <NavDropdown.Item href="#">Projects</NavDropdown.Item>
             </NavDropdown>
-            <Nav.Link href="#" className="disabled" aria-disabled="true">
-              Disabled
-            </Nav.Link>
+
           </Nav>
           <Form className="d-flex">
             <FormControl
