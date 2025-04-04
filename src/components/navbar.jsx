@@ -106,13 +106,13 @@ function MyNavbar() {
           <span className="navbar-text">
             <div className="social-icon">
               <a href="#">
-                <img src="" alt="icon1" />
+                <img src="/images/nav-icon1.svg" alt="icon1" />
               </a>
               <a href="#">
-                <img src="" alt="icon2" />
+                <img src="/images/nav-icon2.svg" alt="icon2" />
               </a>
               <a href="#">
-                <img src="" alt="icon3" />
+                <img src="/images/nav-icon3.svg" alt="icon3" />
               </a>
             </div>
           </span>
