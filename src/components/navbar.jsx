@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import {
   Navbar,
   Container,
@@ -10,8 +10,27 @@ import {
 } from "react-bootstrap";
 
 function MyNavbar() {
+  const [activeLink, setActiveLink] = useState("home");
+  const [scrolled, setscrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => {
+      if (window.scrolly > 50) {
+        setscrolled(true);
+      } else {
+        setscrolled(false);
+      }
+    };
+    window.addEventListener("scroll", onScroll);
+    return () => window.removeEventListner("scroll",onScroll);
+  }, []);
+
+
+  const UpdateActiveLink =(value)=>{
+    setActiveLink(value);
+  }
   return (
-    <Navbar bg="light" expand="lg">
+    <Navbar bg="light" expand="lg" className={scrolled ? "scrolled" : " "}>
       <Container fluid>
         <img
           src="/images/logo.png"
@@ -32,14 +51,50 @@ function MyNavbar() {
             <Nav.Link href="#">Skills</Nav.Link>
             <Nav.Link href="#">Projects</Nav.Link>
 
-            <NavDropdown title="Dropdown" id="basic-nav-dropdown">
-              <NavDropdown.Item href="#">Home</NavDropdown.Item>
-              <NavDropdown.Item href="#">Skills</NavDropdown.Item>
+            <NavDropdown title="Services" id="basic-nav-dropdown">
+              <NavDropdown.Item
+                href="#"
+                className={
+                  activeLink === "Home" ? "active navbar-link" : "navbar-link"
+                }
+                onClick={UpdateActiveLink('home')}>
+                Home{" "}
+              </NavDropdown.Item>
+              <NavDropdown.Item
+                href="#"
+                className={
+                  activeLink === "Skills" ? "active navbar-link" : "navbar-link"
+                }
+                onClick={UpdateActiveLink('skills')}>
+                Skills
+              </NavDropdown.Item>
               <NavDropdown.Divider />
-              <NavDropdown.Item href="#">Projects</NavDropdown.Item>
+              <NavDropdown.Item
+                href="#"
+                className={
+                  activeLink === "Projects"
+                    ? "active navbar-link"
+                    : "navbar-link"
+                }
+                onClick={UpdateActiveLink(Projects)}>
+                Projects
+              </NavDropdown.Item>
             </NavDropdown>
-
           </Nav>
+
+          <span className="navbar-text">
+            <div className="social-icon">
+              <a href="">
+                <img src="" alt="" />
+              </a>
+              <a href="">
+                <img src="" alt="" />
+              </a>
+              <a href="">
+                <img src="" alt="" />
+              </a>
+            </div>
+          </span>
           <Form className="d-flex">
             <FormControl
               type="search"
