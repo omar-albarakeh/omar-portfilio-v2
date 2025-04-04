@@ -11,26 +11,27 @@ import {
 
 function MyNavbar() {
   const [activeLink, setActiveLink] = useState("home");
-  const [scrolled, setscrolled] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
     const onScroll = () => {
-      if (window.scrolly > 50) {
-        setscrolled(true);
+      if (window.scrollY > 50) {
+        setScrolled(true);
       } else {
-        setscrolled(false);
+        setScrolled(false);
       }
     };
+
     window.addEventListener("scroll", onScroll);
-    return () => window.removeEventListner("scroll",onScroll);
+    return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-
-  const UpdateActiveLink =(value)=>{
+  const updateActiveLink = (value) => {
     setActiveLink(value);
-  }
+  };
+
   return (
-    <Navbar bg="light" expand="lg" className={scrolled ? "scrolled" : " "}>
+    <Navbar bg="light" expand="lg" className={scrolled ? "scrolled" : ""}>
       <Container fluid>
         <img
           src="/images/logo.png"
@@ -44,39 +45,59 @@ function MyNavbar() {
 
         <Navbar.Collapse id="navbarSupportedContent">
           <Nav className="me-auto mb-2 mb-lg-0">
-            <Nav.Link href="#" className="active">
+            <Nav.Link
+              href="#home"
+              className={
+                activeLink === "home" ? "active navbar-link" : "navbar-link"
+              }
+              onClick={() => updateActiveLink("home")}>
               Home
             </Nav.Link>
 
-            <Nav.Link href="#">Skills</Nav.Link>
-            <Nav.Link href="#">Projects</Nav.Link>
+            <Nav.Link
+              href="#skills"
+              className={
+                activeLink === "skills" ? "active navbar-link" : "navbar-link"
+              }
+              onClick={() => updateActiveLink("skills")}>
+              Skills
+            </Nav.Link>
+
+            <Nav.Link
+              href="#projects"
+              className={
+                activeLink === "projects" ? "active navbar-link" : "navbar-link"
+              }
+              onClick={() => updateActiveLink("projects")}>
+              Projects
+            </Nav.Link>
 
             <NavDropdown title="Services" id="basic-nav-dropdown">
               <NavDropdown.Item
-                href="#"
+                href="#home"
                 className={
-                  activeLink === "Home" ? "active navbar-link" : "navbar-link"
+                  activeLink === "home" ? "active navbar-link" : "navbar-link"
                 }
-                onClick={UpdateActiveLink('home')}>
-                Home{" "}
+                onClick={() => updateActiveLink("home")}>
+                Home
               </NavDropdown.Item>
               <NavDropdown.Item
-                href="#"
+                href="#skills"
                 className={
-                  activeLink === "Skills" ? "active navbar-link" : "navbar-link"
+                  activeLink === "skills" ? "active navbar-link" : "navbar-link"
                 }
-                onClick={UpdateActiveLink('skills')}>
+                onClick={() => updateActiveLink("skills")}>
                 Skills
               </NavDropdown.Item>
               <NavDropdown.Divider />
               <NavDropdown.Item
-                href="#"
+                href="#projects"
                 className={
-                  activeLink === "Projects"
+                  activeLink === "projects"
                     ? "active navbar-link"
                     : "navbar-link"
                 }
-                onClick={UpdateActiveLink(Projects)}>
+                onClick={() => updateActiveLink("projects")}>
                 Projects
               </NavDropdown.Item>
             </NavDropdown>
@@ -84,17 +105,18 @@ function MyNavbar() {
 
           <span className="navbar-text">
             <div className="social-icon">
-              <a href="">
-                <img src="" alt="" />
+              <a href="#">
+                <img src="" alt="icon1" />
               </a>
-              <a href="">
-                <img src="" alt="" />
+              <a href="#">
+                <img src="" alt="icon2" />
               </a>
-              <a href="">
-                <img src="" alt="" />
+              <a href="#">
+                <img src="" alt="icon3" />
               </a>
             </div>
           </span>
+
           <Form className="d-flex">
             <FormControl
               type="search"
