@@ -64,11 +64,24 @@ function MyNavbar() {
 
           <div className="navbar-text">
             <div className="social-icon">
-              {["nav-icon1", "nav-icon2", "nav-icon3"].map((icon, i) => (
-                <a href="#" key={i}>
-                  <img src={`/images/${icon}.svg`} alt={`icon${i + 1}`} />
-                </a>
-              ))}
+              <a
+                href="https://www.facebook.com/omar.barakeh.967/"
+                target="_blank"
+                rel="noopener noreferrer">
+                <img src="/images/nav-icon2.svg" alt="Facebook" />
+              </a>
+              <a
+                href="https://www.instagram.com/omarbarakeh2/"
+                target="_blank"
+                rel="noopener noreferrer">
+                <img src="/images/nav-icon3.svg" alt="Instagram" />
+              </a>
+              <a
+                href="https://www.linkedin.com/in/omar-albarakeh/"
+                target="_blank"
+                rel="noopener noreferrer">
+                <img src="/images/nav-icon1.svg" alt="LinkedIn" />
+              </a>
             </div>
             <button className="vvd" onClick={() => console.log("Connect")}>
               <span>LetsConnect</span>
@@ -79,5 +92,4 @@ function MyNavbar() {
     </Navbar>
   );
 }
-
 export default MyNavbar;
