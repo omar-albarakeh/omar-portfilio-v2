@@ -5,6 +5,8 @@ import "./app.css";
 import Banner from "./components/Banner";
 import Skills from "./components/Skills";
 import Projects from "./components/Project";
+import Footer from "./components/Footer";
+import { Contact } from "./components/ContactForm";
 
 function App() {
   return (
@@ -13,6 +15,8 @@ function App() {
       <Banner />
       <Skills />
       <Projects />
+      <Contact/>
+      <Footer />
     </div>
   );
 }
