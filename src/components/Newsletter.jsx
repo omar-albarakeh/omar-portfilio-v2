@@ -1,49 +1,69 @@
 import { useState, useEffect } from "react";
-import { Col, Row, Alert } from "react-bootstrap";
+import { Col, Row, Alert, Form, Button } from "react-bootstrap";
 
 const Newsletter = ({ status, message, onValidated }) => {
   const [email, setEmail] = useState("");
+  const [error, setError] = useState("");
 
   useEffect(() => {
-    if (status === "success") setEmail("");
+    if (status === "success") {
+      setEmail("");
+      setError("");
+    }
   }, [status]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (email && email.includes("@")) {
-      onValidated({ EMAIL: email });
+    setError("");
+
+    if (!email) {
+      setError("Email is required.");
+      return;
     }
+
+    if (!email.includes("@")) {
+      setError("Please enter a valid email address.");
+      return;
+    }
+
+    onValidated({ EMAIL: email });
   };
 
   return (
     <Col lg={12}>
-      <div className="newsletter-bx wow slideInUp">
+      <div className="newsletter-bx wow slideInUp p-4 bg-light rounded shadow-sm">
         <Row className="align-items-center">
-          <Col lg={12} md={6} xl={5}>
-            <h3>
+          <Col lg={12} md={6} xl={5} className="mb-3 mb-md-0">
+            <h3 className="mb-3">
               Subscribe to our Newsletter
-              <br />& Never miss latest updates
+              <br />
+              <small className="text-muted">
+                Never miss the latest updates
+              </small>
             </h3>
-            {status === "sending" && <Alert>Sending...</Alert>}
+
+            {status === "sending" && <Alert variant="info">Sending...</Alert>}
             {status === "error" && <Alert variant="danger">{message}</Alert>}
             {status === "success" && <Alert variant="success">{message}</Alert>}
+            {error && <Alert variant="warning">{error}</Alert>}
           </Col>
+
           <Col md={6} xl={7}>
-            <form onSubmit={handleSubmit}>
-              <div className="new-email-bx d-flex">
-                <input
-                  value={email}
+            <Form onSubmit={handleSubmit} noValidate>
+              <div className="d-flex flex-column flex-sm-row align-items-stretch gap-2">
+                <Form.Control
                   type="email"
+                  placeholder="Enter your email"
+                  value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  placeholder="Email Address"
-                  className="form-control me-2"
+                  aria-label="Email address"
                   required
                 />
-                <button type="submit" className="btn btn-primary">
-                  Submit
-                </button>
+                <Button type="submit" variant="primary">
+                  Subscribe
+                </Button>
               </div>
-            </form>
+            </Form>
           </Col>
         </Row>
       </div>
