@@ -8,32 +8,32 @@ const Projects = () => {
     {
       title: "E-Commerce Platform",
       description: "MERN Stack | Product Catalog, Cart & Checkout",
-      imgUrl: "/images/project-img1.png",
+      imgUrl: "/images/project1.png",
     },
     {
       title: "Real-Time Chat App",
       description: "Node.js, Socket.io, React | Live Messaging",
-      imgUrl: "/images/project-img2.png",
+      imgUrl: "/images/project2.png",
     },
     {
       title: "Task Manager API",
       description: "Express & MongoDB | REST API for CRUD tasks",
-      imgUrl: "/images/project-img3.png",
+      imgUrl: "/images/project3.png",
     },
     {
       title: "Portfolio Website",
       description: "React | Responsive Frontend & Animations",
-      imgUrl: "/images/project-img1.png",
+      imgUrl: "/images/project4.png",
     },
     {
       title: "Blog Platform",
       description: "Next.js & MongoDB | Auth, Posts, Comments",
-      imgUrl: "/images/project-img2.png",
+      imgUrl: "/images/project5.png",
     },
     {
       title: "Admin Dashboard",
       description: "React + Chart.js | Data Visualization & CRUD",
-      imgUrl: "/images/project-img3.png",
+      imgUrl: "/images/project6.png",
     },
   ];
 

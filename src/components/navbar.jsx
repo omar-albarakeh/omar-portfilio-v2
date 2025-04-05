@@ -83,7 +83,14 @@ function MyNavbar() {
                 <img src="/images/nav-icon1.svg" alt="LinkedIn" />
               </a>
             </div>
-            <button className="vvd" onClick={() => console.log("Connect")}>
+            <button
+              className="vvd"
+              onClick={() => {
+                const section = document.getElementById("connect");
+                if (section) {
+                  section.scrollIntoView({ behavior: "smooth" });
+                }
+              }}>
               <span>LetsConnect</span>
             </button>
           </div>

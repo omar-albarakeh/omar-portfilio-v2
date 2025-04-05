@@ -22,10 +22,10 @@ const Skills = () => {
   ];
 
   return (
-    <section className="skills-section" id="skills">
+    <section className="skill" id="skills">
       <div className="container">
         <motion.div
-          className="skills-box"
+          className="skill-bx"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
@@ -37,29 +37,25 @@ const Skills = () => {
             glimpse of my core skills:
           </p>
 
-          <Carousel
-            responsive={responsive}
-            infinite={true}
-            autoPlay={true}
-            autoPlaySpeed={2500}
-            containerClass="skills-carousel"
-            itemClass="carousel-item-padding">
-            {skills.map((skill, index) => (
-              <div className="skill-item" key={index}>
-                <motion.div
-                  whileHover={{ scale: 1.05 }}
-                  transition={{ type: "spring", stiffness: 300 }}
-                  className="skill-card">
-                  <img
-                    src={skill.icon}
-                    alt={`${skill.title} Icon`}
-                    className="skill-icon"
-                  />
-                  <h5>{skill.title}</h5>
-                </motion.div>
-              </div>
-            ))}
-          </Carousel>
+          <div className="skill-slider">
+            <Carousel
+              responsive={responsive}
+              infinite={true}
+              autoPlay={true}
+              autoPlaySpeed={2500}
+              itemClass="carousel-item-padding">
+              {skills.map((skill, index) => (
+                <div className="item" key={index}>
+                  <motion.div
+                    whileHover={{ scale: 1.05 }}
+                    transition={{ type: "spring", stiffness: 300 }}>
+                    <img src={skill.icon} alt={`${skill.title} Icon`} />
+                    <h5>{skill.title}</h5>
+                  </motion.div>
+                </div>
+              ))}
+            </Carousel>
+          </div>
         </motion.div>
       </div>
     </section>

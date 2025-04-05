@@ -4,17 +4,17 @@ import MailchimpForm from "./MailchimpForm";
 const Footer = () => {
   const socialLinks = [
     {
-      href: "https://linkedin.com",
+      href: "https://www.facebook.com/omar.barakeh.967/",
       icon: "/images/nav-icon1.svg",
       alt: "LinkedIn",
     },
     {
-      href: "https://facebook.com",
+      href: "https://www.facebook.com/omar.barakeh.967/",
       icon: "/images/nav-icon2.svg",
       alt: "Facebook",
     },
     {
-      href: "https://instagram.com",
+      href: "https://www.instagram.com/omarbarakeh2/",
       icon: "/images/nav-icon3.svg",
       alt: "Instagram",
     },
@@ -31,9 +31,10 @@ const Footer = () => {
           <Col xs={12} md={3} className="text-center text-md-start">
             <a href="/" aria-label="Homepage">
               <img
-                src="/images/logo.svg"
+                src="/images/logo.png"
                 alt="Site Logo"
-                style={{ maxWidth: "150px" }}
+                width="150"
+                className="logo"
               />
             </a>
           </Col>
@@ -57,28 +58,12 @@ const Footer = () => {
                 </a>
               ))}
             </div>
-            <p className="mb-0 small text-muted">
-              &copy; {new Date().getFullYear()} Your Company. All rights
-              reserved.
-            </p>
+            <div>
+              <p class="copyright">© 2025 All rights reserved.</p>
+            </div>
           </Col>
         </Row>
       </Container>
-
-      <style jsx>{`
-        .social-icon-img {
-          transition: transform 0.2s ease, filter 0.2s ease;
-        }
-
-        .social-icon-img:hover {
-          transform: scale(1.1);
-          filter: brightness(1.2);
-        }
-
-        .footer {
-          border-top: 1px solid rgba(255, 255, 255, 0.1);
-        }
-      `}</style>
     </footer>
   );
 };
